@@ -1,0 +1,5 @@
+put records
+curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @bulk_movies.json -H 'Content-Type: application/json'
+
+search
+curl -XGET -u master-user:master-user-password 'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/movies/_search?q=mars&pretty=true'
