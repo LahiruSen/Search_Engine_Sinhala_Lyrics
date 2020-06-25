@@ -1,0 +1,11 @@
+put records
+curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @new_sinhala_songs_16.json -H 'Content-Type: application/json'
+curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @new_sinhala_songs.json -H 'Content-Type: application/x-ndjson'
+curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @songs_test.json -H 'Content-Type: application/json'
+
+search
+curl -XGET -u master-user:master-user-password 'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/movies/_search?q=mars&pretty=true'
+curl -XGET  'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/movies/_search?q=mars&pretty=true'
+
+
+https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/
