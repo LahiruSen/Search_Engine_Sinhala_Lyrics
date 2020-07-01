@@ -1,11 +1,43 @@
+es_host = https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/
+
+from Minsuk Heo
+
+Verify Index
+curl -XGET es_host/movies?pretty
+
+Create Index
+curl -XPUT es_host/movies?pretty
+
+Delete Index
+curl -XDELETE es_host/movies?pretty
+
+Create Document
+curl -XPOST es_host/index/type/document_id/ -d 'json content'
+curl -XPOST es_host/index/type/document_id/ -d @filename.json
+curl -XPOST es_host/_bulk?pretty --data-binary @filename.json
+
+Update a document
+curl -XPOST es_host/index/type/doc_id/_update -d 'json content'  ex.// doc_content = {"doc" : {"unit" : 1 }}
+
+Mapping
+curl -XPUT 'es_host/index/type/_mapping' -d @mapping_file.json
+
+Concrete commands
+curl -XPUT 'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/songs/song/_mapping' -d @mapping.json -H 'Content-Type: application/json'
+curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @sinhala_songs.bulk -H 'Content-Type: application/json'
+curl -XGET https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/songs?pretty
+
+
+
+
+old
+
 put records
-curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @new_sinhala_songs_16.json -H 'Content-Type: application/json'
-curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @new_sinhala_songs.json -H 'Content-Type: application/x-ndjson'
-curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @songs_test.json -H 'Content-Type: application/json'
+curl -XPOST es_host/_bulk --data-binary @new_sinhala_songs_16.json -H 'Content-Type: application/json'
+curl -XPOST es_host/_bulk --data-binary @new_sinhala_songs.json -H 'Content-Type: application/x-ndjson'
+curl -XPOST es_host/_bulk --data-binary @songs_test.json -H 'Content-Type: application/json'
 
 search
-curl -XGET -u master-user:master-user-password 'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/movies/_search?q=mars&pretty=true'
-curl -XGET  'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/movies/_search?q=mars&pretty=true'
+curl -XGET -u master-user:master-user-password 'es_host/movies/_search?q=mars&pretty=true'
+curl -XGET  'es_host/movies/_search?q=mars&pretty=true'
 
-
-https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/

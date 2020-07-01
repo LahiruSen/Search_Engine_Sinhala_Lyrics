@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "album_name_en": {
+      "type": "text"
+    },
+    "album_name_si": {
+      "type": "text"
+    },
+    "artist_name_en": {
+      "type": "text"
+    },
+    "artist_name_si": {
+      "type": "text"
+    },
+    "artist_rating": {
+      "type": "float"
+    },
+    "lyrics": {
+      "type": "text"
+    },
+    "track_id": {
+      "type": "text"
+    },
+    "track_name_en": {
+      "type": "text"
+    },
+    "track_name_si": {
+      "type": "text"
+    },
+    "track_rating": {
+      "type": "float"
+    }
+    }
+}
+

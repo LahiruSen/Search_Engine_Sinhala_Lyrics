@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "city": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

@@ -40,7 +40,7 @@ async function search() {
         let artist_name_en = results[item]._source.artist_name_en;
         let artist_rating = results[item]._source.artist_rating;
         let lyrics = results[item]._source.lyrics;
-        lyrics = lyrics.replace(/%/g, "");
+        lyrics = lyrics.replace(/%/g, "\n");
         // Construct the full HTML string that we want to append to the div
         resultdiv.append('<div class="result">' +
         // '<a href="' + url + '"><img src="' + image + '" onerror="imageError(this)"></a>' +
