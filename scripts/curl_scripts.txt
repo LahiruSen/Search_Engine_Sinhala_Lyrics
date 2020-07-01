@@ -1,6 +1,4 @@
-es_host = https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/
-
-from Minsuk Heo
+es_host = "removed since endpoint has open access, request developer for details"
 
 Verify Index
 curl -XGET es_host/movies?pretty
@@ -23,21 +21,7 @@ Mapping
 curl -XPUT 'es_host/index/type/_mapping' -d @mapping_file.json
 
 Concrete commands
-curl -XPUT 'https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/songs/song/_mapping' -d @mapping.json -H 'Content-Type: application/json'
-curl -XPOST https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/_bulk --data-binary @sinhala_songs.bulk -H 'Content-Type: application/json'
-curl -XGET https://search-sinhalasongs-43aa74bvse5ss2dy2fyyl4zdg4.us-east-1.es.amazonaws.com/songs?pretty
-
-
-
-
-old
-
-put records
-curl -XPOST es_host/_bulk --data-binary @new_sinhala_songs_16.json -H 'Content-Type: application/json'
-curl -XPOST es_host/_bulk --data-binary @new_sinhala_songs.json -H 'Content-Type: application/x-ndjson'
-curl -XPOST es_host/_bulk --data-binary @songs_test.json -H 'Content-Type: application/json'
-
-search
-curl -XGET -u master-user:master-user-password 'es_host/movies/_search?q=mars&pretty=true'
-curl -XGET  'es_host/movies/_search?q=mars&pretty=true'
+curl -XPUT 'es_host/songs/song/_mapping' -d @mapping.json -H 'Content-Type: application/json'
+curl -XPOST es_host/_bulk --data-binary @sinhala_songs.bulk -H 'Content-Type: application/json'
+curl -XGET es_host/songs?pretty
 
